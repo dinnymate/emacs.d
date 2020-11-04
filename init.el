@@ -57,3 +57,20 @@
 
 (straight-use-package 'magit)
 (define-key global-map (kbd "C-x g") 'magit-status)
+
+(straight-use-package 'hydra)
+
+(defhydra hydra-windmove (:foreign-keys run
+			  :hint nil)
+  "Move to window:"
+  ("<up>" windmove-up "Up")
+  ("<down>" windmove-down "Down")
+  ("<left>" windmove-left "Left")
+  ("<right>" windmove-right "Right")
+  ("j" windmove-left "Left")
+  ("é" windmove-right "Right")
+  ("k" windmove-up "Up")
+  ("l" windmove-down  "Down")
+  ("q" nil "Quit"))
+
+(define-key global-map (kbd "C-c m") 'hydra-windmove/body)
