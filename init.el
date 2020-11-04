@@ -25,7 +25,8 @@
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+       (expand-file-name "straight/repos/straight.el/bootstrap.el"
+			 user-emacs-directory))
       (bootstrap-version 5))
   (unless (file-exists-p bootstrap-file)
     (with-current-buffer
@@ -48,6 +49,7 @@
 (define-key company-mode-map (kbd "<C-tab>") 'company-complete)
 (setq company-idle-delay 0.0)
 (setq company-minimum-prefix-length 0)
+(setq-default lisp-indent-function 'common-lisp-indent-function)
 
 (straight-use-package 'ido)
 (straight-use-package 'ido-vertical-mode)
