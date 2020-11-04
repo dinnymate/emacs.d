@@ -58,6 +58,11 @@
 (straight-use-package 'magit)
 (define-key global-map (kbd "C-x g") 'magit-status)
 
+(straight-use-package 'projectile)
+(projectile-mode t)
+
+(define-key projectile-mode-map (kbd "C-x p") 'projectile-command-map)
+
 (straight-use-package 'hydra)
 
 (defhydra hydra-windmove (:foreign-keys run
