@@ -217,11 +217,15 @@
     (ace-window-display-mode t)
     :bind ("M-o" . ace-window))
 
+(use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-l")
+  (setq lsp-auto-guess-root t)
+  :hook ((rust-mode . lsp-deferred))
+  :commands lsp)
 
-
-(use-package project)
-
-(use-package eglot)
+(use-package flycheck
+  :commands flycheck)
 
 (use-package clojure-mode
     :after paredit
@@ -255,4 +259,3 @@
     :straight (:protocol https))
 
 (use-package geiser-guile)
-
