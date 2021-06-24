@@ -25,7 +25,6 @@
 (setq custom-file (concat user-emacs-directory "/custom.el"))
 (setq-default eldoc-echo-area-use-multiline-p t)
 
-
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
@@ -262,7 +261,6 @@
   (setq rust-format-on-save t)
   (add-hook 'rust-mode-hook
             (lambda () (setq indent-tabs-mode nil))))
-
 
 (use-package geiser
     :straight (:protocol https))
