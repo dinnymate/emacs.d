@@ -209,7 +209,17 @@
 
     (advice-add #'marginalia-cycle :after
 		(lambda () (when (bound-and-true-p selectrum-mode) (selectrum-exhibit))))
-    (setq marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil)))
+    (setq marginalia-annotators
+	  '(marginalia-annotators-heavy marginalia-annotators-light nil)))
+
+(use-package embark
+    :bind ("C-c e" . embark-act)
+    :init
+    (setq embark-quit-after-action nil)
+    :config
+    (defun refresh-selectrum ()
+      (setq selectrum--previous-input-string nil))
+    (add-hook 'embark-pre-action-hook #'refresh-selectrum))
 
 (use-package ace-window
     :commands ace-window-display-mode
