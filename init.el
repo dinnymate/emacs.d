@@ -143,14 +143,10 @@
     :config
     (message "foo")
     (setq-default treemacs-is-never-other-window t)
+    (setq-default treemacs-space-between-root-nodes nil)
     (add-hook 'treemacs-mode-hook
 	      (lambda ()
-		(display-line-numbers-mode -1)
-		(add-hook 'post-command-hook
-			  (lambda ()
-			    (setq-local file-local-variables-alist nil)
-			    (setq-local dir-local-variables-alist nil)
-			    (hack-dir-local-variables)) nil t)))
+		(display-line-numbers-mode -1)))
     (set-face-attribute 'treemacs-root-face nil :height 110)
     (set-face-attribute 'treemacs-root-unreadable-face nil :height 110)
     (set-face-attribute 'treemacs-root-remote-face nil :height 110)
