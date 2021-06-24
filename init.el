@@ -56,10 +56,13 @@
 (setq show-paren-delay 0)
 (add-hook 'prog-mode-hook 'show-paren-mode)
 
+;safe-local-variables
 (put 'projectile-project-run-cmd 'safe-local-variable (lambda (_) t))
 (put 'projectile-project-configure-cmd 'safe-local-variable (lambda (_) t))
 (put 'projectile-project-compile-cmd 'safe-local-variable (lambda (_) t))
 (put 'cider-clojure-cli-aliases 'safe-local-variable (lambda (_) t))
+(put 'cider-default-cljs-repl 'safe-local-variable (lambda (_) t))
+(put 'cider-cljs-repl-types 'safe-local-variable (lambda (_) t))
 
 (advice-add 'yes-or-no-p :override
 	    (lambda (prompt)
